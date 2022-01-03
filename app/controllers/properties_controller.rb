@@ -1,4 +1,5 @@
 class PropertiesController < ApplicationController
+
   before_action :set_property, only: %i[ show edit update destroy ]
 
   # GET /properties or /properties.json
@@ -65,6 +66,6 @@ class PropertiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def property_params
-      params.require(:property).permit(:street_address, :unit_number, :city, :state, :country, :zip_code)
+      params.require(:property).permit(:street_address, :unit_number, :city, :state, :country, :zip_code, :property_type_id)
     end
 end

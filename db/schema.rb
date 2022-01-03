@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_02_212919) do
+ActiveRecord::Schema.define(version: 2022_01_02_234931) do
 
   create_table "properties", force: :cascade do |t|
     t.text "street_address"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2022_01_02_212919) do
     t.text "zip_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "property_type_id"
+    t.index ["property_type_id"], name: "index_properties_on_property_type_id"
   end
 
+  create_table "property_types", force: :cascade do |t|
+    t.text "property_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "properties", "property_types"
 end
