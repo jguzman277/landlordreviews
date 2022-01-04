@@ -43,7 +43,7 @@
 
   <div>
     <%= form.label :property_type_id, style: "display: block" %>
-    <%= form.collection_select :property_type_id, PropertyType.order(:property_type),:id,:property_type, include_blank: true %>
+    <%= form.collection_select :property_type_id, PropertyType.order(:property_type), :id, :property_type, include_blank: true %>
   </div>
 
   <div>
