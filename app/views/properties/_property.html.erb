@@ -29,9 +29,18 @@
     <%= property.zip_code %>
   </p>
 
-   <p>
+  <p>
     <strong>Property Type:</strong>
     <%= property.property_type.property_type %>
+  </p>
+
+  <p>
+    <strong>Property Amenities:</strong>
+    <% property.amenities.each do |a| %>
+      <ul>
+        <li><%= a.amenity %></li>
+      </ul>
+    <% end %>
   </p>
 
 </div>

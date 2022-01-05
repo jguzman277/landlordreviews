@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_04_031301) do
+ActiveRecord::Schema.define(version: 2022_01_04_032154) do
+
+  create_table "amenities", force: :cascade do |t|
+    t.text "amenity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "properties", force: :cascade do |t|
     t.text "street_address"
@@ -25,6 +31,15 @@ ActiveRecord::Schema.define(version: 2022_01_04_031301) do
     t.index ["property_type_id"], name: "index_properties_on_property_type_id"
   end
 
+  create_table "property_amenities", force: :cascade do |t|
+    t.integer "property_id", null: false
+    t.integer "amenity_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["amenity_id"], name: "index_property_amenities_on_amenity_id"
+    t.index ["property_id"], name: "index_property_amenities_on_property_id"
+  end
+
   create_table "property_types", force: :cascade do |t|
     t.text "property_type"
     t.datetime "created_at", precision: 6, null: false
@@ -32,4 +47,6 @@ ActiveRecord::Schema.define(version: 2022_01_04_031301) do
   end
 
   add_foreign_key "properties", "property_types"
+  add_foreign_key "property_amenities", "amenities"
+  add_foreign_key "property_amenities", "properties"
 end
