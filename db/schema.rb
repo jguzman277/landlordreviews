@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_030542) do
+ActiveRecord::Schema.define(version: 2022_01_07_031659) do
 
   create_table "amenities", force: :cascade do |t|
-    t.text "amenity"
+    t.string "amenity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -68,13 +68,13 @@ ActiveRecord::Schema.define(version: 2022_01_07_030542) do
   end
 
   create_table "property_types", force: :cascade do |t|
-    t.text "property_type"
+    t.string "property_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.text "room"
+    t.string "room"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
