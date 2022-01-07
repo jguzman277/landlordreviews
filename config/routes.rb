@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :states
+  resources :bedrooms
+  resources :rooms
   resources :amenities
   resources :property_types
   resources :properties

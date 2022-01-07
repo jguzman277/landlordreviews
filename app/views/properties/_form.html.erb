@@ -13,42 +13,62 @@
 
   <div>
     <%= form.label :street_address, style: "display: block" %>
-    <%= form.text_area :street_address %>
+    <%= form.text_field :street_address %>
   </div>
 
   <div>
     <%= form.label :unit_number, style: "display: block" %>
-    <%= form.text_area :unit_number %>
+    <%= form.text_field :unit_number %>
   </div>
 
   <div>
     <%= form.label :city, style: "display: block" %>
-    <%= form.text_area :city %>
+    <%= form.text_field :city %>
   </div>
 
   <div>
-    <%= form.label :state, style: "display: block" %>
-    <%= form.text_area :state %>
+    <%= form.label :state_id, style: "display: block" %>
+    <%= form.collection_select(:state_id, State.all.order(:state), :id, :state, include_blank: true) %>
   </div>
 
   <div>
     <%= form.label :country, style: "display: block" %>
-    <%= form.text_area :country %>
+    <%= form.text_field :country %>
   </div>
 
   <div>
     <%= form.label :zip_code, style: "display: block" %>
-    <%= form.text_area :zip_code %>
+    <%= form.text_field :zip_code %>
   </div>
 
   <div>
     <%= form.label :property_type_id, style: "display: block" %>
-    <%= form.collection_select(:property_type_id, PropertyType.order(:property_type), :id, :property_type, include_blank: true ) %>
+    <%= form.collection_select(:property_type_id, PropertyType.all.order(:property_type), :id, :property_type, include_blank: true) %>
+  </div>
+
+  <div>
+    <%= form.label :bedroom_id, style: "display: block" %>
+    <%= form.collection_select :bedroom_id, Bedroom.all.order(:id), :id, :bedroom, include_blank: true %>
+  </div>
+  
+  <div>
+    <%= form.label :full_bathrooms, style: "display: block" %>
+    <%= form.text_field :full_bathrooms %>
+  </div>
+
+  <div>
+    <%= form.label :half_bathrooms, style: "display: block" %>
+    <%= form.text_field :half_bathrooms %>
   </div>
 
   <div>
     <%= form.label :amenity_id, style: "display: block" %>
     <%= form.collection_check_boxes :amenity_ids, Amenity.all.order(:amenity), :id, :amenity %>
+  </div>
+
+  <div>
+    <%= form.label :room_id, style: "display: block" %>
+    <%= form.collection_check_boxes :room_ids, Room.all.order(:room), :id, :room %>
   </div>
 
   <div>

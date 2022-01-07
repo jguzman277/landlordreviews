@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_04_032154) do
+ActiveRecord::Schema.define(version: 2022_01_07_025113) do
 
   create_table "amenities", force: :cascade do |t|
     t.text "amenity"
@@ -18,17 +18,28 @@ ActiveRecord::Schema.define(version: 2022_01_04_032154) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "bedrooms", force: :cascade do |t|
+    t.string "bedroom"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "properties", force: :cascade do |t|
-    t.text "street_address"
-    t.text "unit_number"
-    t.text "city"
-    t.text "state"
-    t.text "country"
-    t.text "zip_code"
+    t.string "street_address"
+    t.string "unit_number"
+    t.string "city"
+    t.string "country"
+    t.string "zip_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "property_type_id"
+    t.integer "full_bathrooms"
+    t.integer "half_bathrooms"
+    t.integer "bedroom_id"
+    t.integer "state_id"
+    t.index ["bedroom_id"], name: "index_properties_on_bedroom_id"
     t.index ["property_type_id"], name: "index_properties_on_property_type_id"
+    t.index ["state_id"], name: "index_properties_on_state_id"
   end
 
   create_table "property_amenities", force: :cascade do |t|
@@ -40,13 +51,38 @@ ActiveRecord::Schema.define(version: 2022_01_04_032154) do
     t.index ["property_id"], name: "index_property_amenities_on_property_id"
   end
 
+  create_table "property_rooms", force: :cascade do |t|
+    t.integer "property_id", null: false
+    t.integer "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["property_id"], name: "index_property_rooms_on_property_id"
+    t.index ["room_id"], name: "index_property_rooms_on_room_id"
+  end
+
   create_table "property_types", force: :cascade do |t|
     t.text "property_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.text "room"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string "state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "properties", "bedrooms"
   add_foreign_key "properties", "property_types"
+  add_foreign_key "properties", "states"
   add_foreign_key "property_amenities", "amenities"
   add_foreign_key "property_amenities", "properties"
+  add_foreign_key "property_rooms", "properties"
+  add_foreign_key "property_rooms", "rooms"
 end

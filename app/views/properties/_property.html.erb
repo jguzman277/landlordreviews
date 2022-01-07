@@ -16,7 +16,7 @@
 
   <p>
     <strong>State:</strong>
-    <%= property.state %>
+    <%= property.state.state %>
   </p>
 
   <p>
@@ -35,10 +35,34 @@
   </p>
 
   <p>
+    <strong>Bedroom(s):</strong>
+    <%= property.bedroom.bedroom %>
+  </p>
+
+  <p>
+    <strong>Full Bathroom(s):</strong>
+    <%= property.full_bathrooms %>
+  </p>
+
+  <p>
+    <strong>Half Bathroom(s):</strong>
+    <%= property.half_bathrooms %>
+  </p>
+
+  <p>
     <strong>Property Amenities:</strong>
     <% property.amenities.each do |a| %>
       <ul>
         <li><%= a.amenity %></li>
+      </ul>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Property Rooms:</strong>
+    <% property.rooms.each do |r| %>
+      <ul>
+        <li><%= r.room %></li>
       </ul>
     <% end %>
   </p>
