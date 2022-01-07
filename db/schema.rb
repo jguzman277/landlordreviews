@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_031659) do
+ActiveRecord::Schema.define(version: 2022_01_07_032558) do
 
   create_table "amenities", force: :cascade do |t|
     t.string "amenity"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2022_01_07_031659) do
     t.integer "bedroom_id"
     t.integer "state_id"
     t.integer "country_id"
+    t.text "description"
     t.index ["bedroom_id"], name: "index_properties_on_bedroom_id"
     t.index ["country_id"], name: "index_properties_on_country_id"
     t.index ["property_type_id"], name: "index_properties_on_property_type_id"
