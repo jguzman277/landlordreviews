@@ -4,6 +4,7 @@ class Property < ApplicationRecord
     belongs_to :property_type
     belongs_to :bedroom
     belongs_to :state
+    belongs_to :country
 
     has_many :property_amenities
     has_many :amenities, through: :property_amenities

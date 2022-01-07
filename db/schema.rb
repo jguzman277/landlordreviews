@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_025113) do
+ActiveRecord::Schema.define(version: 2022_01_07_030542) do
 
   create_table "amenities", force: :cascade do |t|
     t.text "amenity"
@@ -24,11 +24,16 @@ ActiveRecord::Schema.define(version: 2022_01_07_025113) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.string "country"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "properties", force: :cascade do |t|
     t.string "street_address"
     t.string "unit_number"
     t.string "city"
-    t.string "country"
     t.string "zip_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -37,7 +42,9 @@ ActiveRecord::Schema.define(version: 2022_01_07_025113) do
     t.integer "half_bathrooms"
     t.integer "bedroom_id"
     t.integer "state_id"
+    t.integer "country_id"
     t.index ["bedroom_id"], name: "index_properties_on_bedroom_id"
+    t.index ["country_id"], name: "index_properties_on_country_id"
     t.index ["property_type_id"], name: "index_properties_on_property_type_id"
     t.index ["state_id"], name: "index_properties_on_state_id"
   end
@@ -79,6 +86,7 @@ ActiveRecord::Schema.define(version: 2022_01_07_025113) do
   end
 
   add_foreign_key "properties", "bedrooms"
+  add_foreign_key "properties", "countries"
   add_foreign_key "properties", "property_types"
   add_foreign_key "properties", "states"
   add_foreign_key "property_amenities", "amenities"
