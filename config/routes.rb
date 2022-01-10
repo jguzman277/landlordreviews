@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  devise_for :landlords
+
+  devise_for :users
+
   resources :countries
   resources :states
   resources :bedrooms
