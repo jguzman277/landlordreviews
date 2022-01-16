@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
 
-  devise_for :landlords
+  devise_for :landlords, controllers: {
+    sessions: 'landlords/sessions',
+    confirmations: 'landlords/confirmations',
+    registrations: 'landlords/registrations',
+    passwords: 'landlord/passwords'
+  }
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    confirmations: 'users/confirmations',
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
+  }
 
   resources :countries
   resources :states
@@ -11,6 +21,7 @@ Rails.application.routes.draw do
   resources :amenities
   resources :property_types
   resources :properties
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

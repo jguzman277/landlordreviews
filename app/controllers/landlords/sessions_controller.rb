@@ -11,9 +11,10 @@ class Landlords::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+    sign_out :user
+  end
 
   # DELETE /resource/sign_out
   # def destroy
