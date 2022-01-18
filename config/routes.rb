@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     sessions: 'landlords/sessions',
     confirmations: 'landlords/confirmations',
     registrations: 'landlords/registrations',
-    passwords: 'landlord/passwords'
+    passwords: 'landlords/passwords'
   }
 
   devise_for :users, controllers: {

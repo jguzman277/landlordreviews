@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_234102) do
+ActiveRecord::Schema.define(version: 2022_01_17_221708) do
 
   create_table "amenities", force: :cascade do |t|
     t.string "amenity"
@@ -38,8 +38,21 @@ ActiveRecord::Schema.define(version: 2022_01_07_234102) do
     t.datetime "remember_created_at", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "company_name"
+    t.string "phone_number"
+    t.string "website"
+    t.string "street_address"
+    t.string "city"
+    t.integer "state_id"
+    t.integer "country_id"
+    t.string "zip_code"
+    t.string "landlord_type"
+    t.index ["country_id"], name: "index_landlords_on_country_id"
     t.index ["email"], name: "index_landlords_on_email", unique: true
     t.index ["reset_password_token"], name: "index_landlords_on_reset_password_token", unique: true
+    t.index ["state_id"], name: "index_landlords_on_state_id"
   end
 
   create_table "properties", force: :cascade do |t|
@@ -110,6 +123,8 @@ ActiveRecord::Schema.define(version: 2022_01_07_234102) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "landlords", "countries"
+  add_foreign_key "landlords", "states"
   add_foreign_key "properties", "bedrooms"
   add_foreign_key "properties", "countries"
   add_foreign_key "properties", "property_types"
