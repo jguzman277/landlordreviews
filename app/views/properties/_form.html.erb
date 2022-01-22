@@ -61,9 +61,9 @@
     <%= form.text_field :half_bathrooms %>
   </div>
 
-  <div>
-    <%= form.label :amenity_id, style: "display: block" %>
-    <%= form.collection_check_boxes :amenity_ids, Amenity.all.order(:amenity), :id, :amenity %>
+  <div class="form-check">
+    <%= form.label :amenity_id, style: "display: block", class: "form-check-label" %>
+    <%= form.collection_check_boxes :amenity_ids, Amenity.all.order(:amenity), :id, :amenity, class: "form-check-input" %>
   </div>
 
   <div>

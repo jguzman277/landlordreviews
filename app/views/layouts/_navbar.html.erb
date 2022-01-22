@@ -10,7 +10,7 @@
           <%= link_to "Properties", root_path, class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Landlords</a>
+          <%= link_to "Landlords", landlords_path, class: "nav-link" %>
         </li>
         <% if landlord_signed_in? %>
           <li class="nav-item">

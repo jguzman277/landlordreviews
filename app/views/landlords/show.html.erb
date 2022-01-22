@@ -1,0 +1,54 @@
+<h1>Landlord</h1>
+<p>
+    <strong>Landlord Type: </strong>
+    <%= @landlord.landlord_type %>
+</p>
+<% if @landlord.company_name? %>
+    <p>
+        <strong>Company: </strong>
+        <%= @landlord.company_name %>
+    </p>
+<% end %>
+
+<% if @landlord.first_name? %>
+    <p>
+        <strong>First Name: </strong>
+        <%= @landlord.first_name %>
+    </p>
+<% end %>
+<% if @landlord.last_name? %>
+    <p>
+        <strong>Last Name: </strong>
+        <%= @landlord.last_name %>
+    </p>
+<% end %>
+<p>
+    <strong>Phone Number: </strong>
+    <%= @landlord.phone_number %>
+</p>
+<p>
+    <strong>Website: </strong>
+    <%= @landlord.website %>
+</p>
+<p>
+    <strong>E-mail Address: </strong>
+    <%= @landlord.email %>
+</p>
+<p>
+    <strong>City: </strong>
+    <%= @landlord.city %>
+</p>
+<p>
+    <strong>State: </strong>
+    <%= @landlord.state.state %>
+</p>
+<p>
+    <strong>Country: </strong>
+    <%= @landlord.country.country %>
+</p>
+<p>
+    <strong>Zip Code: </strong>
+    <%= @landlord.zip_code %>
+</p>
+
+<%= link_to "Back to Landlords", landlords_path, class: "btn btn-secondary" %>

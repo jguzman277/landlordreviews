@@ -5,7 +5,12 @@ class Landlord < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :password_confirmation, presence: true, on: :create
+  validates :state, :country, :zip_code, presence: true
 
   belongs_to :state
   belongs_to :country
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

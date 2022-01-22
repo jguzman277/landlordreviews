@@ -3,96 +3,96 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, 'data-turbo' => "false" }) do |f| %>
   <%= render "landlords/shared/error_messages", resource: resource %>
 
-  <div>
-    <%= f.label :landlord_type, style: "display: block" %>
-    <%= f.select :landlord_type, ['Individual', 'Company'] %>
+  <div class="form-group">
+    <%= f.label :landlord_type, style: "display: block", class: "form-label" %>
+    <%= f.select :landlord_type, ['Individual', 'Company'], {}, class: "form-control" %>
   </div>
 
-  <div>
-    <%= f.label :first_name, style: "display: block" %>
-    <%= f.text_field :first_name %>
+  <div class="form-group">
+    <%= f.label :first_name, style: "display: block", class: "form-label" %>
+    <%= f.text_field :first_name, class: "form-control" %>
   </div>
 
-  <div>
-    <%= f.label :last_name, style: "display: block" %>
-    <%= f.text_field :last_name %>
+  <div class="form-group">
+    <%= f.label :last_name, style: "display: block", class: "form-label" %>
+    <%= f.text_field :last_name, class: "form-control" %>
   </div>
 
-  <div>
-    <%= f.label :company_name, style: "display: block" %>
-    <%= f.text_field :company_name %>
+  <div class="form-group">
+    <%= f.label :company_name, style: "display: block", class: "form-label" %>
+    <%= f.text_field :company_name, class: "form-control" %>
   </div>
 
-  <div>
-    <%= f.label :phone_number, style: "display: block" %>
-    <%= f.text_field :phone_number %>
+  <div class="form-group">
+    <%= f.label :phone_number, style: "display: block", class: "form-label" %>
+    <%= f.text_field :phone_number, class: "form-control" %>
   </div>
 
-  <div>
-    <%= f.label :website, style: "display: block" %>
-    <%= f.text_field :website %>
+  <div class="form-group">
+    <%= f.label :website, style: "display: block", class: "form-label" %>
+    <%= f.text_field :website, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="form-group">
+    <%= f.label :email, class: "form-label", class: "form-label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
 
-  <div>
-    <%= f.label :street_address, style: "display: block" %>
-    <%= f.text_field :street_address %>
+  <div class="form-group">
+    <%= f.label :street_address, style: "display: block", class: "form-label" %>
+    <%= f.text_field :street_address, class: "form-control" %>
   </div>
 
-  <div>
-    <%= f.label :city, style: "display: block" %>
-    <%= f.text_field :city %>
+  <div class="form-group">
+    <%= f.label :city, style: "display: block", class: "form-label" %>
+    <%= f.text_field :city, class: "form-control" %>
   </div>
 
-  <div>
-    <%= f.label :state_id, style: "display: block" %>
-    <%= f.collection_select(:state_id, State.all.order(:state), :id, :state, include_blank: true) %>
+  <div class="form-group">
+    <%= f.label :state_id, style: "display: block", class: "form-label" %>
+    <%= f.collection_select(:state_id, State.all.order(:state), :id, :state, { include_blank: true } ) %>
   </div>
 
-  <div>
-    <%= f.label :country_id, style: "display: block" %>
+  <div class="form-group">
+    <%= f.label :country_id, style: "display: block", class: "form-label" %>
     <%= f.collection_select(:country_id, Country.all.order(:country), :id, :country, include_blank: true) %>
   </div>
 
-  <div>
-    <%= f.label :zip_code, style: "display: block" %>
-    <%= f.text_field :zip_code %>
+  <div class="form-group">
+    <%= f.label :zip_code, style: "display: block", class: "form-label" %>
+    <%= f.text_field :zip_code, class: "form-control" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div  class="form-group">
+    <%= f.label :password, class: "form-label" %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="form-group">
+    <%= f.label :password_confirmation, class: "form-label" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class="form-group">
+    <%= f.label :current_password, class: "form-label" %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", class: "btn btn-primary mt-3" %>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back, class: "btn btn-secondary" %>
