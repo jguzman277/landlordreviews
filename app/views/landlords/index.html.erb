@@ -14,21 +14,22 @@
         </tr>
     </thead>
     <tbody>
-    <% @landlords.each do |landlord| %>
-        <tr>
-            <% if landlord.landlord_type === "Company" %>
-                <th scope="col"><%= link_to landlord.company_name, controller: 'landlords', action: 'show', id: landlord.id %></th>
-            <% else %>
-                <th scope="col"><%= link_to landlord.full_name, controller: 'landlords', action: 'show', id: landlord.id %></th>
-            <% end %>
-            
-            <th scope="col"><%= landlord.landlord_type %></th>
-            <th scope="col"><%= landlord.email %></th>
-            <th scope="col"><%= landlord.phone_number %></th>
-            <th scope="col"><%= landlord.website %></th>
-            <th scope="col"><%= landlord.city %></th>
-            <th scope="col"><%= landlord.state.state %></th>
-            <th scope="col"><%= landlord.country.country %></th>
-        </tr>
-    <% end %>
+        <% @landlords.each do |landlord| %>
+            <tr>
+                <% if landlord.landlord_type === "Company" %>
+                    <td scope="col"><%= link_to landlord.company_name, controller: 'landlords', action: 'show', id: landlord.id %></td>
+                <% else %>
+                    <td scope="col"><%= link_to landlord.full_name, controller: 'landlords', action: 'show', id: landlord.id %></td>
+                <% end %>
+                
+                <td scope="col"><%= landlord.landlord_type %></td>
+                <td scope="col"><%= landlord.email %></td>
+                <td scope="col"><%= landlord.phone_number %></td>
+                <td scope="col"><%= landlord.website %></td>
+                <td scope="col"><%= landlord.city %></td>
+                <td scope="col"><%= landlord.state.state %></td>
+                <td scope="col"><%= landlord.country.country %></td>
+            </tr>
+        <% end %>
+    </tbody>
 </table>

@@ -11,72 +11,72 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :street_address, style: "display: block" %>
-    <%= form.text_field :street_address %>
+  <div class="form-group">
+    <%= form.label :street_address, style: "display: block", class: "form-label" %>
+    <%= form.text_field :street_address, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :unit_number, style: "display: block" %>
-    <%= form.text_field :unit_number %>
+  <div class="form-group">
+    <%= form.label :unit_number, style: "display: block", class: "form-label" %>
+    <%= form.text_field :unit_number, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :city, style: "display: block" %>
-    <%= form.text_field :city %>
+  <div class="form-group">
+    <%= form.label :city, style: "display: block", class: "form-label" %>
+    <%= form.text_field :city, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :state_id, style: "display: block" %>
+  <div class="form-group">
+    <%= form.label :state_id, style: "display: block", class: "form-label" %>
     <%= form.collection_select(:state_id, State.all.order(:state), :id, :state, include_blank: true) %>
   </div>
 
-  <div>
-    <%= form.label :country_id, style: "display: block" %>
+  <div class="form-group">
+    <%= form.label :country_id, style: "display: block", class: "form-label" %>
     <%= form.collection_select(:country_id, Country.all.order(:country), :id, :country, include_blank: true) %>
   </div>
 
-  <div>
-    <%= form.label :zip_code, style: "display: block" %>
-    <%= form.text_field :zip_code %>
+  <div class="form-group">
+    <%= form.label :zip_code, style: "display: block", class: "form-label" %>
+    <%= form.text_field :zip_code, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :property_type_id, style: "display: block" %>
+  <div class="form-group">
+    <%= form.label :property_type_id, style: "display: block", class: "form-label" %>
     <%= form.collection_select(:property_type_id, PropertyType.all.order(:property_type), :id, :property_type, include_blank: true) %>
   </div>
 
-  <div>
-    <%= form.label :bedroom_id, style: "display: block" %>
+  <div class="form-group">
+    <%= form.label :bedroom_id, style: "display: block", class: "form-label" %>
     <%= form.collection_select :bedroom_id, Bedroom.all.order(:id), :id, :bedroom, include_blank: true %>
   </div>
   
-  <div>
-    <%= form.label :full_bathrooms, style: "display: block" %>
-    <%= form.text_field :full_bathrooms %>
+  <div class="form-group">
+    <%= form.label :full_bathrooms, style: "display: block", class: "form-label" %>
+    <%= form.text_field :full_bathrooms, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :half_bathrooms, style: "display: block" %>
-    <%= form.text_field :half_bathrooms %>
+  <div class="form-group">
+    <%= form.label :half_bathrooms, style: "display: block", class: "form-label" %>
+    <%= form.text_field :half_bathrooms, class: "form-control" %>
   </div>
 
-  <div class="form-check">
-    <%= form.label :amenity_id, style: "display: block", class: "form-check-label" %>
+  <div class="form-group">
+    <%= form.label :amenity_id, style: "display: block", class: "form-label" %>
     <%= form.collection_check_boxes :amenity_ids, Amenity.all.order(:amenity), :id, :amenity, class: "form-check-input" %>
   </div>
 
-  <div>
-    <%= form.label :room_id, style: "display: block" %>
+  <div class="form-group">
+    <%= form.label :room_id, style: "display: block", class: "form-label" %>
     <%= form.collection_check_boxes :room_ids, Room.all.order(:room), :id, :room %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class="form-group">
+    <%= form.label :description, style: "display: block", class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary mt-2" %>
   </div>
 <% end %>
