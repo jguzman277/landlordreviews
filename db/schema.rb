@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_17_221708) do
+ActiveRecord::Schema.define(version: 2022_01_25_022246) do
 
   create_table "amenities", force: :cascade do |t|
     t.string "amenity"
@@ -69,8 +69,10 @@ ActiveRecord::Schema.define(version: 2022_01_17_221708) do
     t.integer "state_id"
     t.integer "country_id"
     t.text "description"
+    t.integer "landlord_id"
     t.index ["bedroom_id"], name: "index_properties_on_bedroom_id"
     t.index ["country_id"], name: "index_properties_on_country_id"
+    t.index ["landlord_id"], name: "index_properties_on_landlord_id"
     t.index ["property_type_id"], name: "index_properties_on_property_type_id"
     t.index ["state_id"], name: "index_properties_on_state_id"
   end
@@ -127,6 +129,7 @@ ActiveRecord::Schema.define(version: 2022_01_17_221708) do
   add_foreign_key "landlords", "states"
   add_foreign_key "properties", "bedrooms"
   add_foreign_key "properties", "countries"
+  add_foreign_key "properties", "landlords"
   add_foreign_key "properties", "property_types"
   add_foreign_key "properties", "states"
   add_foreign_key "property_amenities", "amenities"

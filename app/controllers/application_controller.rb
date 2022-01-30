@@ -2,7 +2,6 @@ require 'landlords/parameter_sanitizer'
 
 class ApplicationController < ActionController::Base
     before_action :devise_parameter_sanitizer, if: :devise_controller?
-    protect_from_forgery with: :exception
 
     protected
   
