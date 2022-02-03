@@ -9,6 +9,7 @@ class Landlord < ApplicationRecord
 
   belongs_to :state
   belongs_to :country
+  has_many :properties
 
   def full_name
     "#{first_name} #{last_name}"

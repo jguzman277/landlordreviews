@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_25_022246) do
+ActiveRecord::Schema.define(version: 2022_02_03_033014) do
 
   create_table "amenities", force: :cascade do |t|
     t.string "amenity"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2022_01_25_022246) do
     t.integer "country_id"
     t.text "description"
     t.integer "landlord_id"
+    t.boolean "claim_approved"
     t.index ["bedroom_id"], name: "index_properties_on_bedroom_id"
     t.index ["country_id"], name: "index_properties_on_country_id"
     t.index ["landlord_id"], name: "index_properties_on_landlord_id"

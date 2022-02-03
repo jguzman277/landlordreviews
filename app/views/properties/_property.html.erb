@@ -72,4 +72,15 @@
     <%= property.description %>
   </p>
 
+  <p>
+    <% if property.landlord_id %>
+      <strong>Landlord: </strong>
+      <% if property.landlord.landlord_type === "Company" %>
+        <%= link_to property.landlord.company_name, controller: 'landlords', action: 'show', id: property.landlord.id %>
+      <% else %>
+        <%= link_to property.landlord.full_name, controller: 'landlords', action: 'show', id: property.landlord.id %>
+      <% end %>
+    <% end %>
+  </p>
+
 </div>

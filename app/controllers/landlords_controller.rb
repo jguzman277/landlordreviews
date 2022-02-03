@@ -6,6 +6,7 @@ class LandlordsController < ApplicationController
   end
 
   def show
+    @properties = Property.where(landlord_id: @landlord.id, claim_approved: true)
   end
 end
 

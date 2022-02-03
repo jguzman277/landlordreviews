@@ -1,6 +1,13 @@
+<h1 class="mb-4, mt-1">Property</h1>
 <%= render @property %>
 
 <div>
+  <% if landlord_signed_in? %>
+    <% if !(@property.landlord_id) %>
+      <%= button_to "Claim Property", claim_property_path(@property), class: "btn btn-primary mb-2", method: "put" %>
+    <% end %>
+  <% end %>
+
   <%= link_to "Edit", edit_property_path(@property), class: "btn btn-primary" %> 
   <%= link_to "Back", properties_path, class: "btn btn-secondary" %>
 

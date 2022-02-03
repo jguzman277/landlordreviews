@@ -56,6 +56,20 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def claim_property
+    @property = Property.all.find(params[:id])
+    if landlord_signed_in?
+      if !(@property.landlord_id)
+        @property.landlord_id = current_landlord.id
+        @property.save
+        redirect_to root_path
+        flash[:alert] = "Property claim submitted for approval."
+      else
+        flash[:alert] = "Property already claimed."
+      end
+    end
+  end
+
   # DELETE /properties/1 or /properties/1.json
   def destroy
     @property.destroy

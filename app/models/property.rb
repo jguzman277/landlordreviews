@@ -5,6 +5,7 @@ class Property < ApplicationRecord
     belongs_to :bedroom
     belongs_to :state
     belongs_to :country
+    belongs_to :landlord, optional: true
 
     has_many :property_amenities
     has_many :amenities, through: :property_amenities

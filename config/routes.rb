@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   resources :amenities
   resources :property_types
   resources :properties
-  resources :users, :only =>[:show]
+  resources :users, :only => [:show]
+
+  put 'properties/:id/claim_property' => 'properties#claim_property', as: :claim_property
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
