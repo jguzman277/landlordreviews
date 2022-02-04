@@ -83,4 +83,12 @@
     <% end %>
   </p>
 
+  <p>
+    Created by <%= property.created_by %> <%= time_ago_in_words(property.created_at) %> ago.
+  </p>
+
+  <p>
+    Updated by <%= property.updated_by %> <%= time_ago_in_words(property.updated_at) %> ago.
+  </p>
+
 </div>

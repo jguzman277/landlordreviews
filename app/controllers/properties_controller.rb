@@ -31,6 +31,16 @@ class PropertiesController < ApplicationController
   # POST /properties or /properties.json
   def create
     @property = Property.new(property_params)
+    if current_landlord
+      if current_landlord.landlord_type === "Individual"
+        @property.created_by = current_landlord.full_name
+      else
+        @property.created_by = current_landlord.company_name
+      end
+      @property.landlord_id = current_landlord.id
+    else
+      @property.created_by = current_user.email
+    end
 
     respond_to do |format|
       if @property.save
@@ -45,6 +55,17 @@ class PropertiesController < ApplicationController
 
   # PATCH/PUT /properties/1 or /properties/1.json
   def update
+    if current_landlord
+      if current_landlord.landlord_type === "Individual"
+        @property.updated_by = current_landlord.full_name
+      else
+        @property.updated_by = current_landlord.company_name
+      end
+      @property.landlord_id = current_landlord.id
+    else
+      @property.updated_by = current_user.email
+    end
+
     respond_to do |format|
       if @property.update(property_params)
         format.html { redirect_to property_url(@property), notice: "Property was successfully updated." }
